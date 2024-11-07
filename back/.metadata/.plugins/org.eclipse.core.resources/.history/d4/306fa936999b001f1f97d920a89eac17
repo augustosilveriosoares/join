@@ -1,0 +1,5 @@
+package com.join.repository;
+
+public interface CategoriaRepository {
+
+}

@@ -1,0 +1,45 @@
+package com.join.service;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.join.exception.CategoriaNotFoundException;
+import com.join.model.Categoria;
+import com.join.repository.CategoriaRepository;
+import com.join.repository.ProdutoRespository;
+
+@Service
+public class ProdutoService {
+	
+	@Autowired
+	private ProdutoRespository produtoRepository;
+	
+	public List<Categoria> findAll(){
+		return produtoRepository.findAll();
+	}
+	
+	public Categoria findById(UUID id) {
+		return produtoRepository.findById(id).orElseThrow(() -> new CategoriaNotFoundException());
+	}
+	
+	public Categoria save(Categoria categoria) {
+		return produtoRepository.save(categoria);
+	}
+	
+	public Categoria update (UUID id, Categoria entity) {
+		var categoria = produtoRepository.findById(id).orElseThrow(() -> new CategoriaNotFoundException());
+		categoria.setNome(entity.getNome());
+		produtoRepository.save(categoria);
+		return categoria;
+	}
+	
+	public void delete(UUID id){
+		var categoria = produtoRepository.findById(id).orElseThrow(() -> new CategoriaNotFoundException());
+		produtoRepository.delete(categoria);
+		
+	}
+
+}

@@ -1,0 +1,8 @@
+package com.join.repository;
+
+import org.springframework.boot.autoconfigure.data.ConditionalOnRepositoryType;
+
+@ConditionalOnRepositoryType
+public interface CategoriaRepository {
+
+}

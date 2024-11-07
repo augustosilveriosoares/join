@@ -1,0 +1,5 @@
+package com.join.dto;
+
+public record CategoriaDTO() {
+
+}

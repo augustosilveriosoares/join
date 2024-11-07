@@ -1,0 +1,17 @@
+spring.application.name=join
+server.port=8090
+
+# Configurações do banco de dados PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/join
+spring.datasource.username=postgres
+spring.datasource.password=123456789
+
+# Configurações do driver e dialeto para PostgreSQL
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+# Configurações JPA e Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+

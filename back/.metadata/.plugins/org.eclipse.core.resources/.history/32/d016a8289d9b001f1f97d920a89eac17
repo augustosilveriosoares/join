@@ -1,0 +1,32 @@
+package com.join.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.join.model.Categoria;
+import com.join.service.CategoriaService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@Controller
+@RequestMapping("categoria")
+public class CategoriaController {
+	
+	@SuppressWarnings("unused")
+	@Autowired
+	private CategoriaService categoriaService;
+	
+	@GetMapping
+	public List<Categoria> listaCategorias() {
+		return ResponseEntity.status(HttpStatus.OK).body(categoriaService.findAll());
+	}
+	
+
+}

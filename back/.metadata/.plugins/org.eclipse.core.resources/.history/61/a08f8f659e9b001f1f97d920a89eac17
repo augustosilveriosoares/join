@@ -1,0 +1,26 @@
+package com.join.service;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.join.model.Categoria;
+import com.join.repository.CategoriaRepository;
+
+public class CategoriaService {
+	
+	@SuppressWarnings("unused")
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+	
+	public List<Categoria> findAll(){
+		return categoriaRepository.findAll();
+	}
+	
+	public Categoria save(Categoria categoria) {
+		var categoria = categoriaRepository.findById(null);
+		return categoria;
+	}
+
+}

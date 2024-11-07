@@ -1,0 +1,5 @@
+package com.join.dto;
+
+public record ProdutoDTO(String nome, String sku, Double preco, String categoria ) {
+
+}

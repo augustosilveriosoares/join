@@ -1,0 +1,12 @@
+package com.join.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.join.repository.CategoriaRepository;
+
+public class CategoriaService {
+	
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+
+}

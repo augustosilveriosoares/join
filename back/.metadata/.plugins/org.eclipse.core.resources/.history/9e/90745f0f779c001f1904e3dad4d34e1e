@@ -1,0 +1,59 @@
+package com.join.service;
+
+import java.beans.Beans;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.join.dto.ProdutoDTO;
+import com.join.exception.ProdutoNotFoundException;
+import com.join.model.Categoria;
+import com.join.model.Produto;
+import com.join.repository.CategoriaRepository;
+import com.join.repository.ProdutoRespository;
+
+@Service
+public class ProdutoService {
+	
+	@Autowired
+	private ProdutoRespository produtoRepository;
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+	
+	public List<Produto> findAll(){
+		return produtoRepository.findAll();
+	}
+	
+	public Produto findById(UUID id) {
+		return produtoRepository.findById(id).orElseThrow(() -> new ProdutoNotFoundException());
+	}
+	
+	public Produto save(Produto produto) {
+		return produtoRepository.save(produto);
+	}
+	
+	public Produto update (UUID id, ProdutoDTO produtoDto) {
+		var produto = produtoRepository.findById(id).orElseThrow(() -> new ProdutoNotFoundException());
+		if( produtoDto.categoria() != produto.getCategoria().getId().toString()) {
+			Categoria categoria = categoriaRepository.findById(UUID.fromString(produtoDto.categoria())).get();
+		}
+		
+		BeanUtils.copyProperties(produtoDto,produto);
+		
+			
+		produto.setNome(entity.getNome());
+		produtoRepository.save(produto);
+		return produto;
+	}
+	
+	public void delete(UUID id){
+		var produto = produtoRepository.findById(id).orElseThrow(() -> new ProdutoNotFoundException());
+		produtoRepository.delete(produto);
+		
+	}
+
+}

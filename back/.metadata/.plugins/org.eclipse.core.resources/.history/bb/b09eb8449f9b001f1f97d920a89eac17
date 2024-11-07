@@ -1,0 +1,6 @@
+package com.join.controller;
+
+@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Categoria não encontrado")
+public class CategoriaNotFoundException {
+
+}

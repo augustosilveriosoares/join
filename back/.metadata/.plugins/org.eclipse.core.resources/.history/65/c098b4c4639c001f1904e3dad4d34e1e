@@ -1,0 +1,5 @@
+package com.join.exception;
+
+public class ProdutoNotFoundException {
+
+}

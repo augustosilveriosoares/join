@@ -1,0 +1,16 @@
+INSERT INTO produto (id, nome, sku, preco, categoria_id) VALUES 
+  (gen_random_uuid(), 'Camiseta Básica', 'sku001', 29.99, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Cadeira Gamer', 'sku002', 350.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Smartphone X', 'sku003', 1200.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Notebook Ultra', 'sku004', 2500.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Tênis Esportivo', 'sku005', 120.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Cafeteira Elétrica', 'sku006', 199.99, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Sofá 3 Lugares', 'sku007', 850.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Relógio Inteligente', 'sku008', 450.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Micro-ondas Digital', 'sku009', 280.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Caixa de Som Bluetooth', 'sku010', 80.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Jogo de Panelas', 'sku011', 250.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Fone de Ouvido Sem Fio', 'sku012', 120.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Mochila Executiva', 'sku013', 180.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Óculos de Sol', 'sku014', 90.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1)),
+  (gen_random_uuid(), 'Kit Ferramentas', 'sku015', 150.00, (SELECT id FROM categoria ORDER BY RANDOM() LIMIT 1));
