@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.join.exception.CategoriaHasChildrenExceptions;
@@ -19,7 +20,7 @@ public class CategoriaService {
 	private CategoriaRepository categoriaRepository;
 	
 	public List<Categoria> findAll(){
-		return categoriaRepository.findAll();
+		return categoriaRepository.findAll(Sort.by(Sort.Order.asc("nome")));
 	}
 	
 	public Categoria findById(UUID id) {
